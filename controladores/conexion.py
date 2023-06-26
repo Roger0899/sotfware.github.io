@@ -18,17 +18,16 @@ def conec():
   )
   return conn
 
-def buscar(selec):
+def buscar_log(user, passw):
   conn = conec()
-  # Crear un cursor para ejecutar consultas
   cursor = conn.cursor()
-  # Ejemplo: Obtener todos los registros de una tabla llamada 'users'
-  cursor.execute(selec)
+  consulta = "SELECT * FROM usuarios WHERE {} = %s AND {} = %s".format("nombre", "password")
+  valores = (user, passw)
+  cursor.execute(consulta, valores)
   rows = cursor.fetchall()
-  # Cerrar el cursor y la conexión
   cursor.close()
   conn.close()
-  return rows
+  return bool(rows)
 
 def insertar(new_user):
   conn = conec()
@@ -46,10 +45,12 @@ def insertar(new_user):
 
 
 # Ejemplo Imprimir los registros obtenidos
-# rows = buscar("SELECT * FROM usuarios where nombre ='Usuario 4'")
+# rows = buscar_log("admin","123456")
+# rows = buscar_log("Usuario 2","usuario2@example.com")
+
+# print()
 # for row in rows:
-#     print(row[1])
-insertar("new_user")
+# insertar("new_user")
 
 
 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interfaz del Usuario Externo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        
+        .profile h2 {
+            margin: 0;
+        }
+        
+        .info {
+            margin-bottom: 20px;
+        }
+        
+        .info h3 {
+            margin-top: 0;
+        }
+        
+        .info p {
+            margin-bottom: 5px;
+        }
+        
+        .products {
+            margin-bottom: 20px;
+        }
+        
+        .products h3 {
+            margin-top: 0;
+        }
+        
+        .products ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .products li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <img src="{{ user['profile_image'] }}" alt="Imagen de perfil">
+        <h2>{{ user['nombre'] }}</h2>
+    </div>
+    
+    <div class="info">
+        <h3>Información Personal</h3>
+        <p><strong>Nombre:</strong> {{ user['nombre'] }}</p>
+        <p><strong>Empresa:</strong> {{ user['empresa'] }}</p>
+        <p><strong>Correo Electrónico:</strong> {{ user['correo'] }}</p>
+        <p><strong>Teléfono:</strong> {{ user['telefono'] }}</p>
+    </div>
+    

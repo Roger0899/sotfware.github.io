@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interfaz del Administrador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        
+        .profile h2 {
+            margin: 0;
+        }
+        
+        .info {
+            margin-bottom: 20px;
+        }
+        
+        .info h3 {
+            margin-top: 0;
+        }
+        
+        .info p {
+            margin-bottom: 5px;
+        }
+        
+        .users {
+            margin-bottom: 20px;
+        }
+        
+        .users h3 {
+            margin-top: 0;
+        }
+        
+        .users ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .users li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <img src="{{ admin['profile_image'] }}" alt="Imagen de perfil">
+        <h2>{{ admin['nombre'] }}</h2>
+    </div>
+    
+    <div class="info">
+        <h3>Información Personal</h3>
+        <p><strong>Nombre:</strong> {{ admin['nombre'] }}</p>
+        <p><strong>Rol:</strong> {{ admin['rol'] }}</p>
+        <p><strong>Correo Electrónico:</strong> {{ admin['correo'] }}</p>
+        <p><strong>Teléfono:</strong> {{ admin['telefono'] }}</p>
+    </div>
+    
+    <div class="users">
+        <h3>Usuarios</h3>
+        <ul>
+            {% for user in admin['usuarios'] %}
+                <li>{{ user['nombre'] }} - {{ user['correo'] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

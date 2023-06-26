@@ -1,0 +1,27 @@
+{% extends 'helpers/base.html' %}
+
+{% block title %}
+Registro
+{% endblock %}
+
+{% block content %}
+
+<h1>Registro de Usuarios</h1>
+
+<form method="POST" action="/">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="cedula">Cédula:</label>
+    <input type="text" id="cedula" name="cedula" required><br><br>
+
+    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+
+    <label for="carrera">Carrera:</label>
+    <input type="text" id="carrera" name="carrera" required><br><br>
+
+    <input type="submit" value="Guardar">
+</form>
+
+{% endblock %}
